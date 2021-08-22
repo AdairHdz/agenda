@@ -11,7 +11,7 @@ Route::get("/contacts/search", function(Request $request) {
     if($request->filled("firstName"))
     {
         $firstName = $request->input("firstName");
-        $retrievedContactsWithGivenFirstName = Contact::where("first_name", $firstName)->get();        
+        $retrievedContactsWithGivenFirstName = Contact::where("first_name", "like", "%$firstName%")->get();        
     }
     else
     {
