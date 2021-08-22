@@ -12,7 +12,9 @@
                 <label for="">Nombre del evento</label>
                 <input type="text" name="eventName" id="eventName" value="{{ $eventName }}" class="form-control">
                 @error("eventName")
-                {{$message}}
+                <p class="text-danger">
+                    {{$message}}
+                </p>
                 @enderror
             </div>
         </div>
@@ -21,7 +23,9 @@
                 <label for="">Descripción del evento</label>
                 <textarea name="eventDescription" id="eventDescription" cols="30" rows="5" value="{{ $eventDescription }}" class="form-control">{{$eventDescription}}</textarea>
                 @error("eventDescription")
-                {{$message}}
+                <p class="text-danger">
+                    {{$message}}
+                </p>
                 @enderror
             </div>
         </div>
@@ -30,23 +34,27 @@
                 <label for="">Fecha de inicio</label>
                 <input type="date" name="eventStartingDate" id="eventStartingDate" value="{{ $eventStartingDate }}" class="form-control">
                 @error("eventStartingDate")
-                {{$message}}
+                <p class="text-danger">
+                    {{$message}}
+                </p>
                 @enderror
             </div>
             <div class="col-12 col-md-6">
                 <label for="">Hora de inicio</label>
                 <input type="time" name="eventStartingTime" id="eventStartingTime" value="{{ $eventStartingTime }}" class="form-control">
                 @error("eventStartingTime")
-                {{$message}}
+                <p class="text-danger">
+                    {{$message}}
+                </p>
                 @enderror
             </div>
         </div>
     </div>
-    <div class="col">        
+    <div class="col">
         <div class="row mb-3 position-relative">
             <div class="col-12">
                 <label for="status">Status</label>
-                <select name="eventStatus" id="status" class="form-control">                    
+                <select name="eventStatus" id="status" class="form-control">
                     <option value="1">Por ocurrir</option>
                     <option value="2">Concluido</option>
                     <option value="3">Cancelado</option>
@@ -55,8 +63,10 @@
             <div class="col-12">
                 <label for="">Participantes</label>
                 <input type="search" name="" id="contactSearchInput" class="form-control">
-                @error("eventParticipants[]")
-                {{$message}}
+                @error("eventParticipants")
+                <p class="text-danger">
+                    {{$message}}
+                </p>
                 @enderror
             </div>
             <div class="position-absolute p-5 border bg-white" style="width:100%; top:100%; z-index:10; display:none;" id="retrievedContactsContainer"></div>
@@ -86,7 +96,7 @@
 <script>
     const contactSearchInput = document.getElementById("contactSearchInput")
     const retrievedContactsContainer = document.getElementById("retrievedContactsContainer")
-    const participantsContainer = document.getElementById("participantsContainer")    
+    const participantsContainer = document.getElementById("participantsContainer")
 
     const removeParticipant = (event) => {
         console.log(event.target)

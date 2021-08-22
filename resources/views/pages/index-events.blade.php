@@ -38,7 +38,7 @@
             @forelse ($retrievedEvents as $event)
             <x-event.event-item-overview eventId="{{$event->id}}" eventName="{{ $event->title }}" eventStartingDate="{{ $event->starting_date }} {{ $event->starting_time }}" eventEndingDate="{{ $event->ending_date }} {{ $event->ending_time }}" eventStatus="{{ $event->status }}" />
             @empty
-            <p>No hya eventos</p>
+            <p>No hay eventos</p>
             @endforelse
             @endisset
             <x-u-i.floating-button href="{{ route('events.create') }}" />
